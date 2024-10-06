@@ -3,7 +3,10 @@ from typing import List
 from kitty.boss import Boss
 
 def main(args: List[str]) -> str:
-    p = subprocess.run(["navi", "--print"], capture_output=True, text=True)
+    env = {
+        "PATH": "YOUR_PATH"
+    }
+    p = subprocess.run(["navi", "--print"], capture_output=True, text=True, env=env)
     cmd = p.stdout
     return cmd
 
